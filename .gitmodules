@@ -1,0 +1,6 @@
+[submodule "front"]
+	path = front
+	url = git@github.com:billeterie-JO-Studi/front-billeterie.git
+[submodule "api"]
+	path = api
+	url = git@github.com:billeterie-JO-Studi/api-billeterie.git
