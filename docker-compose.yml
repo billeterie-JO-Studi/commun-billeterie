@@ -2,21 +2,29 @@ version: "3.1"
 
 services:
   front:
-    build: front
+    image: ponche/studi-front
     restart: always
-    environment:
-      URL_API: http://localhost:3000
     ports:
-      - 80:8080
+      - 8080:8080
 
   api:
-    build: api
+    image: ponche/studi-api
     restart: always
     environment:
       DB_USER: root
+      HOST: 0.0.0.0
+      PORT: 1337
+      URL_FRONT: https://studi.remi-ponche.fr
+      APP_KEYS: "toBeModified1, toBeModified2"
+      API_TOKEN_SALT: tobemodified
+      ADMIN_JWT_SECRET: tobemodified
+      TRANSFER_TOKEN_SALT: tobemodified
+      JWT_SECRET: tobemodified
+      TOKEN_STRIPE: tobemodified
+      ENDPOINT_SECRET_STRIPE: tobemodified
       DB_PASSWORD: changeMe
     ports:
-      - 3000:3000
+      - 3000:1337
 
   db:
     image: mariadb
